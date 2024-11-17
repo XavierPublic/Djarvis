@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Insertion des deux recettes -->
+    <changeSet id="2" author="ton_nom" runInTransaction="true">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="recettes"/>
+        </preConditions>
+        <insert tableName="recettes">
+            <column name="nom" value="Spaghetti Bolognese"/>
+            <column name="description" value="Un classique italien avec une sauce riche en viande."/>
+            <column name="ingredients" value="Spaghetti, boeuf haché, tomates, oignon"/>
+            <column name="instructions" value="1. Faites chauffer"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="ton_nom" runInTransaction="true">
+        <insert tableName="recettes">
+            <column name="nom" value="Poulet rôti"/>
+            <column name="description" value="Poulet rôti."/>
+            <column name="ingredients" value="Poulet"/>
+            <column name="instructions" value="1. Assaisonnez."/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
