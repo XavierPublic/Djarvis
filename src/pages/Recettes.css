@@ -1,0 +1,46 @@
+.recettes {
+    padding: 20px;
+}
+
+.recettes h2 {
+    text-align: center;
+}
+
+.recettes input,
+.recettes textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.recettes button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.recettes button:hover {
+    background-color: #218838;
+}
+
+.recettes ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recettes li {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.recettes li button {
+    background-color: #dc3545;
+}
+
+.recettes li button:hover {
+    background-color: #c82333;
+}
