@@ -1,0 +1,39 @@
+# render.yaml: Configuration pour Render
+
+services:
+  - name: djarvis-backend
+    type: web
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: djarvis-database
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: djarvis-database
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: djarvis-database
+          property: password
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+      - key: SPRING_JPA_SHOW_SQL
+        value: true
+
+databases:
+  - name: djarvis-database
+    plan: free
+    region: oregon
+    databaseType: postgres
+    initialScript: |
+      CREATE TABLE IF NOT EXISTS recettes (
+          id BIGSERIAL PRIMARY KEY,
+          nom TEXT NOT NULL,
+          description TEXT,
+          instructions TEXT,
+          date_creation TIMESTAMP
+      );
